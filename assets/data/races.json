@@ -1,0 +1,989 @@
+{
+  "edition": "2014",
+  "category": "races",
+  "schemaVersion": 2,
+  "races": [
+    {
+      "id": "dwarf",
+      "name": "Дварф",
+      "englishName": "Dwarf",
+      "source": "Player's Handbook (2014)",
+      "description": "Крепкий и выносливый народ, известный мастерством, стойкостью и любовью к традициям.",
+      "size": "Средний",
+      "speed": 25,
+      "age": "Взрослеют примерно к 50 годам. Живут около 350 лет.",
+      "alignment": "Большинство дварфов склонны к законному мировоззрению и ценят порядок, традиции и верность.",
+      "abilityBonuses": {
+        "constitution": 2
+      },
+      "languages": [
+        "Общий",
+        "Дварфийский"
+      ],
+      "traits": [
+        {
+          "name": "Тёмное зрение",
+          "description": "В темноте в пределах 60 футов дварф видит так, словно находится в тусклом свете. В тусклом свете видит как при ярком. Цвета различает только в оттенках серого.",
+          "mechanics": {
+            "darkvision": 60
+          }
+        },
+        {
+          "name": "Дварфийская устойчивость",
+          "description": "Преимущество на спасброски от яда и сопротивление урону ядом.",
+          "mechanics": {
+            "savingThrowAdvantage": [
+              "poison"
+            ],
+            "damageResistances": [
+              "poison"
+            ]
+          }
+        },
+        {
+          "name": "Дварфийское боевое обучение",
+          "description": "Владение боевыми топорами, ручными топорами, лёгкими и боевыми молотами.",
+          "mechanics": {
+            "weaponProficiencies": [
+              "battleaxe",
+              "handaxe",
+              "light_hammer",
+              "warhammer"
+            ]
+          }
+        },
+        {
+          "name": "Владение инструментами",
+          "description": "Владение одним набором инструментов на выбор: инструменты кузнеца, пивовара или каменщика.",
+          "mechanics": {
+            "toolProficiencyChoice": {
+              "count": 1,
+              "chooseFrom": [
+                "smith_tools",
+                "brewer_supplies",
+                "mason_tools"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Знание камня",
+          "description": "При проверках Интеллекта (История), связанных с происхождением каменной кладки, считается, что дварф владеет навыком История, и к проверке добавляется удвоенный бонус мастерства.",
+          "mechanics": {
+            "skillCheckExpertise": {
+              "ability": "intelligence",
+              "skill": "history",
+              "condition": "stonework_origin"
+            }
+          }
+        }
+      ],
+      "subraces": [
+        {
+          "id": "hill-dwarf",
+          "name": "Холмовой дварф",
+          "description": "Более выносливые и чуткие представители дварфийского народа. Получают бонус +1 к Мудрости и дополнительное увеличение максимума хитов на 1 за каждый уровень.",
+          "mechanics": {
+            "abilityBonuses": {
+              "wisdom": 1
+            },
+            "traits": [
+              {
+                "id": "dwarven-toughness",
+                "name": "Дварфийская крепость",
+                "effects": {
+                  "hitPointMaximumPerLevel": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "mountain-dwarf",
+          "name": "Горный дварф",
+          "description": "Крепкие и сильные дварфы, выросшие среди суровых гор. Получают бонус +2 к Силе и владение лёгкими и средними доспехами.",
+          "mechanics": {
+            "abilityBonuses": {
+              "strength": 2
+            },
+            "traits": [
+              {
+                "id": "dwarven-armor-training",
+                "name": "Дварфийское обучение доспехам",
+                "effects": {
+                  "armorProficiencies": [
+                    "light_armor",
+                    "medium_armor"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {}
+    },
+    {
+      "id": "elf",
+      "name": "Эльф",
+      "englishName": "Elf",
+      "source": "Player's Handbook (2014)",
+      "description": "Изящный долгоживущий народ, обладающий острыми чувствами и тесной связью с магией.",
+      "size": "Средний",
+      "speed": 30,
+      "age": "Взрослеют примерно к 100 годам. Живут до 750 лет.",
+      "alignment": "Эльфы ценят свободу, разнообразие и самовыражение. Часто склонны к доброму мировоззрению.",
+      "abilityBonuses": {
+        "dexterity": 2
+      },
+      "languages": [
+        "Общий",
+        "Эльфийский"
+      ],
+      "traits": [
+        {
+          "name": "Тёмное зрение",
+          "description": "В пределах 60 футов эльф видит в темноте так, словно находится в тусклом свете. Цвета различает только в оттенках серого.",
+          "mechanics": {
+            "darkvision": 60
+          }
+        },
+        {
+          "name": "Обострённые чувства",
+          "description": "Владение навыком Внимательность.",
+          "mechanics": {
+            "skillProficiencies": [
+              "perception"
+            ]
+          }
+        },
+        {
+          "name": "Наследие фей",
+          "description": "Преимущество на спасброски от очарования. Магия не может усыпить эльфа.",
+          "mechanics": {
+            "savingThrowAdvantage": [
+              "charmed"
+            ],
+            "immuneMagicalSleep": true
+          }
+        },
+        {
+          "name": "Транс",
+          "description": "Эльфу не нужен сон. Вместо этого он медитирует по 4 часа в день, сохраняя сознание.",
+          "mechanics": {
+            "doesNotSleep": true,
+            "tranceHours": 4
+          }
+        }
+      ],
+      "subraces": [
+        {
+          "id": "high-elf",
+          "name": "Высший эльф",
+          "description": "Получает бонус +1 к Интеллекту, владение одним видом оружия на выбор из длинного меча, короткого меча, короткого или длинного лука, один заговор из списка волшебника и дополнительный язык.",
+          "mechanics": {
+            "abilityBonuses": {
+              "intelligence": 1
+            },
+            "traits": [
+              {
+                "id": "elf-weapon-training",
+                "name": "Эльфийское владение оружием",
+                "effects": {
+                  "weaponProficiencies": [
+                    "longsword",
+                    "shortsword",
+                    "shortbow",
+                    "longbow"
+                  ]
+                }
+              },
+              {
+                "id": "cantrip",
+                "name": "Заговор",
+                "effects": {
+                  "spellChoice": {
+                    "count": 1,
+                    "spellList": "wizard",
+                    "ability": "intelligence"
+                  }
+                }
+              }
+            ],
+            "choices": [
+              {
+                "id": "extra-language",
+                "type": "language",
+                "count": 1,
+                "chooseFrom": "all"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wood-elf",
+          "name": "Лесной эльф",
+          "description": "Получает бонус +1 к Мудрости, владение длинным мечом, коротким мечом, коротким и длинным луком. Скорость увеличивается до 35 футов. Может скрываться даже при лёгком природном укрытии.",
+          "mechanics": {
+            "abilityBonuses": {
+              "wisdom": 1
+            },
+            "speed": 35,
+            "traits": [
+              {
+                "id": "elf-weapon-training",
+                "name": "Эльфийское владение оружием",
+                "effects": {
+                  "weaponProficiencies": [
+                    "longsword",
+                    "shortsword",
+                    "shortbow",
+                    "longbow"
+                  ]
+                }
+              },
+              {
+                "id": "mask-of-the-wild",
+                "name": "Маска дикой природы",
+                "effects": {
+                  "hideWhenLightlyObscuredBy": [
+                    "natural_phenomena"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "drow",
+          "name": "Тёмный эльф (дроу)",
+          "description": "Тёмное зрение 120 футов, чувствительность к солнечному свету, владение рапирами, короткими мечами и ручными арбалетами; магия дроу: «Пляшущие огоньки», затем «Огонь фей» и «Тьма».",
+          "mechanics": {
+            "abilityBonuses": {
+              "charisma": 1
+            },
+            "traits": [
+              {
+                "id": "superior-darkvision",
+                "name": "Превосходное тёмное зрение",
+                "effects": {
+                  "darkvision": 120
+                }
+              },
+              {
+                "id": "sunlight-sensitivity",
+                "name": "Чувствительность к солнечному свету",
+                "effects": {
+                  "attackAndPerceptionDisadvantageInDirectSunlight": true
+                }
+              },
+              {
+                "id": "drow-weapon-training",
+                "name": "Оружейная подготовка дроу",
+                "effects": {
+                  "weaponProficiencies": [
+                    "rapier",
+                    "shortsword",
+                    "hand_crossbow"
+                  ]
+                }
+              },
+              {
+                "id": "drow-magic",
+                "name": "Магия дроу",
+                "effects": {
+                  "cantrips": [
+                    "dancing_lights"
+                  ],
+                  "spellsByLevel": {
+                    "3": [
+                      "faerie_fire"
+                    ],
+                    "5": [
+                      "darkness"
+                    ]
+                  },
+                  "spellcastingAbility": "charisma",
+                  "spellcasting": {
+                    "cantripsAtWill": [
+                      "dancing_lights"
+                    ],
+                    "spells": [
+                      {
+                        "spellId": "faerie_fire",
+                        "characterLevel": 3,
+                        "usesPerLongRest": 1
+                      },
+                      {
+                        "spellId": "darkness",
+                        "characterLevel": 5,
+                        "usesPerLongRest": 1
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {}
+    },
+    {
+      "id": "halfling",
+      "name": "Полурослик",
+      "englishName": "Halfling",
+      "source": "Player's Handbook (2014)",
+      "description": "Небольшой народ, известный удачливостью, храбростью и дружелюбием.",
+      "size": "Маленький",
+      "speed": 25,
+      "age": "Взрослеют примерно к 20 годам. Живут около 150 лет.",
+      "alignment": "Полурослики обычно добродушны, дружелюбны и склонны к законному доброму мировоззрению.",
+      "abilityBonuses": {
+        "dexterity": 2
+      },
+      "languages": [
+        "Общий",
+        "Полуросликов"
+      ],
+      "traits": [
+        {
+          "name": "Удачливость",
+          "description": "Если при броске атаки, проверке характеристики или спасброске выпадает 1, полурослик может перебросить кость. Новый результат необходимо использовать.",
+          "mechanics": {
+            "rerollNaturalOne": [
+              "attack",
+              "ability_check",
+              "saving_throw"
+            ],
+            "mustUseNewRoll": true
+          }
+        },
+        {
+          "name": "Храбрость",
+          "description": "Преимущество на спасброски от испуга.",
+          "mechanics": {
+            "savingThrowAdvantage": [
+              "frightened"
+            ]
+          }
+        },
+        {
+          "name": "Проворство полуросликов",
+          "description": "Полурослик может проходить через пространство существ, размер которых больше его.",
+          "mechanics": {
+            "moveThroughLargerCreatures": true
+          }
+        }
+      ],
+      "subraces": [
+        {
+          "id": "lightfoot-halfling",
+          "name": "Легконогий полурослик",
+          "description": "Получает бонус +1 к Харизме. Может пытаться скрыться, даже если его закрывает существо размером не меньше Среднего.",
+          "mechanics": {
+            "abilityBonuses": {
+              "charisma": 1
+            },
+            "traits": [
+              {
+                "id": "naturally-stealthy",
+                "name": "Природная скрытность",
+                "effects": {
+                  "hideBehindCreatureSize": "medium_or_larger"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "stout-halfling",
+          "name": "Коренастый полурослик",
+          "description": "Получает бонус +1 к Телосложению. Имеет преимущество на спасброски от яда и сопротивление урону ядом.",
+          "mechanics": {
+            "abilityBonuses": {
+              "constitution": 1
+            },
+            "traits": [
+              {
+                "id": "stout-resilience",
+                "name": "Коренастая выносливость",
+                "effects": {
+                  "savingThrowAdvantage": [
+                    "poison"
+                  ],
+                  "damageResistances": [
+                    "poison"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {}
+    },
+    {
+      "id": "human",
+      "name": "Человек",
+      "englishName": "Human",
+      "source": "Player's Handbook (2014)",
+      "description": "Многочисленный и разнообразный народ, способный приспосабливаться к самым разным условиям.",
+      "size": "Средний",
+      "speed": 30,
+      "age": "Взрослеют к 20 годам. Живут меньше века.",
+      "alignment": "Люди не имеют общей склонности к определённому мировоззрению.",
+      "abilityBonuses": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "intelligence": 1,
+        "wisdom": 1,
+        "charisma": 1
+      },
+      "languages": [
+        "Общий"
+      ],
+      "traits": [
+        {
+          "name": "Универсальность",
+          "description": "Значение каждой характеристики увеличивается на 1."
+        },
+        {
+          "name": "Разносторонность",
+          "description": "Люди отличаются разнообразием внешности, культуры, убеждений и жизненного опыта."
+        },
+        {
+          "name": "Альтернативный человек",
+          "description": "Опциональный вариант. Вместо бонуса +1 ко всем характеристикам получает +1 к двум разным характеристикам на выбор, владение одним навыком и одну черту на выбор."
+        }
+      ],
+      "subraces": [],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [
+        {
+          "count": 1,
+          "chooseFrom": "all"
+        }
+      ],
+      "mechanics": {},
+      "variants": [
+        {
+          "id": "variant-human",
+          "name": "Альтернативный человек",
+          "description": "Вместо стандартного увеличения характеристик: +1 к двум разным характеристикам на выбор, владение одним навыком и одна черта на выбор.",
+          "replacesBaseTraits": [
+            "Универсальность"
+          ],
+          "mechanics": {
+            "abilityBonusChoices": [
+              {
+                "count": 2,
+                "amount": 1,
+                "distinct": true,
+                "chooseFrom": [
+                  "strength",
+                  "dexterity",
+                  "constitution",
+                  "intelligence",
+                  "wisdom",
+                  "charisma"
+                ]
+              }
+            ],
+            "skillProficiencyChoice": {
+              "count": 1,
+              "chooseFrom": "all"
+            },
+            "featChoice": {
+              "count": 1,
+              "chooseFrom": "feats"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dragonborn",
+      "name": "Драконорождённый",
+      "englishName": "Dragonborn",
+      "source": "Player's Handbook (2014)",
+      "description": "Гуманоиды драконьего происхождения, в жилах которых течёт кровь могущественных драконов. Обладают врождённым оружием дыхания и сопротивлением определённому типу урона.",
+      "size": "Средний",
+      "speed": 30,
+      "age": "Быстро взрослеют: примерно к 15 годам. Живут около 80 лет.",
+      "alignment": "Склонны к крайностям. Часто выбирают добро, но некоторые следуют своим интересам и стремятся к власти.",
+      "abilityBonuses": {
+        "strength": 2,
+        "charisma": 1
+      },
+      "languages": [
+        "Общий",
+        "Драконий"
+      ],
+      "traits": [
+        {
+          "name": "Драконье наследие",
+          "description": "Происхождение определяет цвет чешуи, тип урона дыхания и сопротивление соответствующему типу урона.",
+          "mechanics": {
+            "choice": {
+              "type": "draconic_ancestry",
+              "options": [
+                "black",
+                "blue",
+                "brass",
+                "bronze",
+                "copper",
+                "gold",
+                "green",
+                "red",
+                "silver",
+                "white"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Оружие дыхания",
+          "description": "Действием выпускает разрушительную энергию в области, определяемой драконьим наследием. Цели совершают спасбросок Ловкости или Силы (в зависимости от типа наследия). Сложность равна 8 + бонус мастерства + модификатор Телосложения. Урон — 2к6, увеличивается до 3к6 на 6-м уровне, 4к6 на 11-м и 5к6 на 16-м. После применения требуется короткий или продолжительный отдых.",
+          "mechanics": {
+            "action": "action",
+            "saveDc": "8 + proficiencyBonus + constitutionModifier",
+            "damageByLevel": {
+              "1": "2d6",
+              "6": "3d6",
+              "11": "4d6",
+              "16": "5d6"
+            },
+            "recharge": "short_or_long_rest",
+            "shapeByAncestry": true
+          }
+        },
+        {
+          "name": "Сопротивление урону",
+          "description": "Сопротивление типу урона, связанному с драконьим наследием.",
+          "mechanics": {
+            "damageResistanceFromAncestry": true
+          }
+        }
+      ],
+      "subraces": [],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {
+        "draconicAncestry": {
+          "black": {
+            "damageType": "acid",
+            "breathShape": "5_by_30_line",
+            "savingThrow": "dexterity"
+          },
+          "blue": {
+            "damageType": "lightning",
+            "breathShape": "5_by_30_line",
+            "savingThrow": "dexterity"
+          },
+          "brass": {
+            "damageType": "fire",
+            "breathShape": "5_by_30_line",
+            "savingThrow": "dexterity"
+          },
+          "bronze": {
+            "damageType": "lightning",
+            "breathShape": "5_by_30_line",
+            "savingThrow": "dexterity"
+          },
+          "copper": {
+            "damageType": "acid",
+            "breathShape": "5_by_30_line",
+            "savingThrow": "dexterity"
+          },
+          "gold": {
+            "damageType": "fire",
+            "breathShape": "15_cone",
+            "savingThrow": "dexterity"
+          },
+          "green": {
+            "damageType": "poison",
+            "breathShape": "15_cone",
+            "savingThrow": "constitution"
+          },
+          "red": {
+            "damageType": "fire",
+            "breathShape": "15_cone",
+            "savingThrow": "dexterity"
+          },
+          "silver": {
+            "damageType": "cold",
+            "breathShape": "15_cone",
+            "savingThrow": "constitution"
+          },
+          "white": {
+            "damageType": "cold",
+            "breathShape": "15_cone",
+            "savingThrow": "constitution"
+          }
+        }
+      }
+    },
+    {
+      "id": "gnome",
+      "name": "Гном",
+      "englishName": "Gnome",
+      "source": "Player's Handbook (2014)",
+      "description": "Небольшой народ, известный живым умом, любознательностью и любовью к изобретениям, исследованиям и магии. Гномы часто превращают даже обычную жизнь в череду удивительных экспериментов.",
+      "size": "Маленький",
+      "speed": 25,
+      "age": "Взрослеют примерно к 40 годам. Живут от 350 до 500 лет.",
+      "alignment": "Чаще всего добрые. Многие склонны к законопослушанию, но встречаются и хаотичные натуры.",
+      "abilityBonuses": {
+        "intelligence": 2
+      },
+      "languages": [
+        "Общий",
+        "Гномий"
+      ],
+      "traits": [
+        {
+          "name": "Тёмное зрение",
+          "description": "В пределах 60 футов видит в темноте как при тусклом освещении, а при тусклом освещении — как при ярком. В полной темноте различает только оттенки серого.",
+          "mechanics": {
+            "darkvision": 60
+          }
+        },
+        {
+          "name": "Гномья хитрость",
+          "description": "Имеет преимущество на спасброски Интеллекта, Мудрости и Харизмы против магии.",
+          "mechanics": {
+            "savingThrowAdvantageAgainstMagic": [
+              "intelligence",
+              "wisdom",
+              "charisma"
+            ]
+          }
+        }
+      ],
+      "subraces": [
+        {
+          "id": "forest_gnome",
+          "name": "Лесной гном",
+          "description": "+1 к Ловкости. Владение заговором «Малая иллюзия» (Minor Illusion), используя Интеллект как базовую характеристику. Также может простыми идеями общаться с маленькими или ещё меньшими зверями.",
+          "mechanics": {
+            "abilityBonuses": {
+              "dexterity": 1
+            },
+            "traits": [
+              {
+                "id": "natural-illusionist",
+                "name": "Природный иллюзионист",
+                "effects": {
+                  "cantrips": [
+                    "minor_illusion"
+                  ],
+                  "spellcastingAbility": "intelligence"
+                }
+              },
+              {
+                "id": "speak-with-small-beasts",
+                "name": "Общение с маленькими зверями",
+                "effects": {
+                  "communicateWithSmallBeasts": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "rock_gnome",
+          "name": "Скальный гном",
+          "description": "+1 к Телосложению. Знание изобретателя: удваивает бонус мастерства при проверках Истории, связанных с магическими, алхимическими и технологическими предметами. Владение инструментами ремесленника (инструменты жестянщика). Может создавать небольшие механические устройства — например, игрушки, зажигалки и музыкальные шкатулки.",
+          "mechanics": {
+            "abilityBonuses": {
+              "constitution": 1
+            },
+            "traits": [
+              {
+                "id": "artificers-lore",
+                "name": "Знания изобретателя",
+                "effects": {
+                  "doubleProficiencyOnChecks": {
+                    "ability": "intelligence",
+                    "skill": "history",
+                    "conditions": [
+                      "magic_item",
+                      "alchemical_object",
+                      "technological_device"
+                    ]
+                  }
+                }
+              },
+              {
+                "id": "tinker",
+                "name": "Мастеровой",
+                "effects": {
+                  "toolProficiencies": [
+                    "tinkers_tools"
+                  ],
+                  "craftMechanicalDevices": true
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {}
+    },
+    {
+      "id": "half-elf",
+      "name": "Полуэльф",
+      "englishName": "Half-Elf",
+      "source": "Player's Handbook (2014)",
+      "description": "Рождённые от союза эльфов и людей, полуэльфы сочетают в себе черты обоих народов. Они обладают человеческой приспособляемостью и эльфийским наследием, но нередко чувствуют себя чужими среди представителей обеих культур.",
+      "size": "Средний",
+      "speed": 30,
+      "age": "Взрослеют примерно к 20 годам. Живут более 180 лет.",
+      "alignment": "Часто тяготеют к хаотичному мировоззрению, ценят свободу и независимость.",
+      "abilityBonuses": {
+        "charisma": 2
+      },
+      "languages": [
+        "Общий",
+        "Эльфийский"
+      ],
+      "traits": [
+        {
+          "name": "Увеличение характеристик",
+          "description": "Харизма увеличивается на 2, а две другие характеристики по выбору игрока увеличиваются на 1 каждая.",
+          "mechanics": {
+            "abilityBonuses": {
+              "charisma": 2
+            },
+            "abilityBonusChoices": [
+              {
+                "count": 2,
+                "amount": 1,
+                "distinct": true,
+                "exclude": [
+                  "charisma"
+                ],
+                "chooseFrom": [
+                  "strength",
+                  "dexterity",
+                  "constitution",
+                  "intelligence",
+                  "wisdom"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Тёмное зрение",
+          "description": "В пределах 60 футов видит в темноте как при тусклом освещении, а при тусклом освещении — как при ярком. В полной темноте различает только оттенки серого.",
+          "mechanics": {
+            "darkvision": 60
+          }
+        },
+        {
+          "name": "Наследие фей",
+          "description": "Имеет преимущество на спасброски от очарования. Магия не может усыпить полуэльфа.",
+          "mechanics": {
+            "savingThrowAdvantage": [
+              "charmed"
+            ],
+            "immuneMagicalSleep": true
+          }
+        },
+        {
+          "name": "Универсальность навыков",
+          "description": "Получает владение двумя навыками на выбор.",
+          "mechanics": {
+            "skillProficiencyChoice": {
+              "count": 2,
+              "chooseFrom": "all"
+            }
+          }
+        }
+      ],
+      "subraces": [],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [
+        {
+          "count": 2,
+          "amount": 1,
+          "distinct": true,
+          "exclude": [
+            "charisma"
+          ],
+          "chooseFrom": [
+            "strength",
+            "dexterity",
+            "constitution",
+            "intelligence",
+            "wisdom"
+          ]
+        }
+      ],
+      "languageChoices": [
+        {
+          "count": 1,
+          "chooseFrom": "all"
+        }
+      ],
+      "mechanics": {}
+    },
+    {
+      "id": "half-orc",
+      "name": "Полуорк",
+      "englishName": "Half-Orc",
+      "source": "Player's Handbook (2014)",
+      "description": "Полуорки происходят от людей и орков. Они сочетают физическую мощь орочьего наследия с человеческой приспособляемостью. Часто сталкиваются с предубеждениями, но сами определяют свой путь.",
+      "size": "Средний",
+      "speed": 30,
+      "age": "Взрослеют быстрее людей: примерно к 14 годам. Живут около 75 лет.",
+      "alignment": "Часто склонны к хаотичному мировоззрению и сильным эмоциям.",
+      "abilityBonuses": {
+        "strength": 2,
+        "constitution": 1
+      },
+      "languages": [
+        "Общий",
+        "Орочий"
+      ],
+      "traits": [
+        {
+          "name": "Тёмное зрение",
+          "description": "В пределах 60 футов видит в темноте как при тусклом освещении, а при тусклом освещении — как при ярком. В полной темноте различает только оттенки серого.",
+          "mechanics": {
+            "darkvision": 60
+          }
+        },
+        {
+          "name": "Угрожающий вид",
+          "description": "Получает владение навыком Запугивание.",
+          "mechanics": {
+            "skillProficiencies": [
+              "intimidation"
+            ]
+          }
+        },
+        {
+          "name": "Неукротимая выносливость",
+          "description": "Когда хиты полуорка опускаются до 0, но он не погибает мгновенно, он может вместо этого остаться с 1 хитом. Использовав эту способность, он должен завершить продолжительный отдых, прежде чем сможет использовать её снова.",
+          "mechanics": {
+            "whenReducedToZeroHp": {
+              "notInstantDeath": true,
+              "setCurrentHp": 1,
+              "uses": 1,
+              "recharge": "long_rest"
+            }
+          }
+        },
+        {
+          "name": "Свирепые атаки",
+          "description": "Когда полуорк наносит критический удар рукопашной атакой оружием, он может добавить одну дополнительную кость урона оружия к урону критического удара.",
+          "mechanics": {
+            "criticalMeleeWeaponExtraDamageDie": 1
+          }
+        }
+      ],
+      "subraces": [],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {}
+    },
+    {
+      "id": "tiefling",
+      "name": "Тифлинг",
+      "englishName": "Tiefling",
+      "source": "Player's Handbook (2014)",
+      "description": "Тифлинги — потомки людей, чья кровь была затронута влиянием Нижних планов. Их внешность несёт следы дьявольского наследия: рога, хвост, необычный цвет кожи и другие черты.",
+      "size": "Средний",
+      "speed": 30,
+      "age": "Взрослеют примерно в том же возрасте, что и люди. Живут немного дольше обычных людей.",
+      "alignment": "Часто склонны к независимости и хаотичному мировоззрению, но их происхождение не определяет характер.",
+      "abilityBonuses": {
+        "intelligence": 1,
+        "charisma": 2
+      },
+      "languages": [
+        "Общий",
+        "Инфернальный"
+      ],
+      "traits": [
+        {
+          "name": "Тёмное зрение",
+          "description": "В пределах 60 футов видит в темноте как при тусклом освещении, а при тусклом освещении — как при ярком. В полной темноте различает только оттенки серого.",
+          "mechanics": {
+            "darkvision": 60
+          }
+        },
+        {
+          "name": "Адское сопротивление",
+          "description": "Получает сопротивление урону огнём.",
+          "mechanics": {
+            "damageResistances": [
+              "fire"
+            ]
+          }
+        },
+        {
+          "name": "Инфернальное наследие",
+          "description": "Знает заговор «Тауматургия». На 3-м уровне может один раз применить заклинание «Адское возмездие» как заклинание 2-го уровня. На 5-м уровне может один раз применить «Тьму». После продолжительного отдыха восстанавливает возможность использовать заклинания 3-го и 5-го уровней. Харизма является базовой характеристикой для этих заклинаний.",
+          "mechanics": {
+            "spellsByLevel": {
+              "0": [
+                "thaumaturgy"
+              ],
+              "3": [
+                "hellish_rebuke"
+              ],
+              "5": [
+                "darkness"
+              ]
+            },
+            "spellcastingAbility": "charisma",
+            "hellishRebukeSlotLevel": 2,
+            "spellcasting": {
+              "cantripsAtWill": [
+                "thaumaturgy"
+              ],
+              "spells": [
+                {
+                  "spellId": "hellish_rebuke",
+                  "characterLevel": 3,
+                  "usesPerLongRest": 1,
+                  "spellSlotLevel": 2
+                },
+                {
+                  "spellId": "darkness",
+                  "characterLevel": 5,
+                  "usesPerLongRest": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "subraces": [],
+      "schemaVersion": 2,
+      "abilityBonusChoices": [],
+      "languageChoices": [],
+      "mechanics": {}
+    }
+  ]
+}
